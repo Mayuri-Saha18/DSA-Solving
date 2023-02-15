@@ -1,46 +1,35 @@
 function runProgram(input) {
     // Write code here
     input = input.trim().split("\n");
-    let tests=+input[0];
+    let test = +input[0];
     let line =1;
-    for(let i=0; i<tests; i++){
-let N =+input[line++];
-let arr=input[line++].trim().split(" ").map(Number)
-let K =+input[line++];
-pairLessThanK(arr,N,K);
+    for(let i=0;i<test; i++){
+        let [N,K]=input[line++].trim().split(" ").map(Number);
+        let arr =input[line++].trim().split(" ").map(Number);
+        minimumSum(N,K,arr);
     }
    
   }
-  function pairLessThanK(arr,N,K){
-    arr.sort((a,b)=>a-b);
-    let i =0;
-    let j =N-1;
-    let max=-Infinity;
-    while(i<j){
-      let sum =arr[i]+arr[j];
-      if(sum>=K){
-j--;
-      }else{
-        if(max<sum){
-          max=sum;
-        }
-        i++;
-      }
-    }
-if(max===-Infinity){
-  console.log(-1)
-}else{
-  console.log(max)
-}
+  function minimumSum(N,K,arr){
+      let sum = 0;
+      for(let i=0;i<K; i++){
+        sum =sum + arr[i];
+      };
+      let min=sum;
+      for(let i=K;i<N;i++){
+          sum=sum - arr[i-K];
+          sum=sum + arr[i];
+          if(sum<min){min=sum}
+      };
+      console.log(min)
   }
   if (process.env.USER=== "") {
     runProgram(`2
-    5
-    1 2 3 4 5
-    7
-    3
-    30 10 20
-    15`);
+    5 3
+    9 9 -5 9 5 
+    5 4
+    2 7 6 2 -5 
+    `);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
