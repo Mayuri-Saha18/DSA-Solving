@@ -2,7 +2,7 @@ function sorting(arr,n){
     for(let i=0;i<n-1;i++){
         for(let j=0;j<n-1;j++){
             let arr1=Math.abs(arr[j])
-            let arr2=Math.abs(arr[j])
+            let arr2=Math.abs(arr[j+1])
             let a=Math.floor(Math.sqrt(arr1))
             let b=Math.floor(Math.sqrt(arr2))
             
@@ -26,7 +26,7 @@ function runProgram(input) {
 let tc=input[0]
 let line=1;
 for(let i=0;i<tc;i++){
-    let n=input[line++].trim().split(" ").map(Number)
+    let n=+(input[line++])
     let arr=input[line++].trim().split(" ").map(Number)
     
     sorting(arr,n)
