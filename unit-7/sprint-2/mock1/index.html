@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./Styles/index.css">
+</head>
+
+<body>
+    <div id="searchBox">
+        <form onsubmit="handleSearch(event)" id="form">
+            <label for="">Search Cat</label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Enter Cat Name"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    <div id="mainBox">
+        <!-- All Cats should append here -->
+    </div>
+
+    <!-- pagination -->
+    
+    <div id="pagination">
+        <label for="">Select Page</label>
+        <select name="pagi" id="pagi" onchange="handlePagination(event)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+</body>
+
+</html>
+
+<script src="./Scripts/index.js"></script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      /* All Your css for Cart page goes here  */
+      #cart-container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Web E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <h1 id="total">
+      Your total order value is :- <span id="cart-total">0</span>
+    </h1>
+    <div id="cart-container">
+      <!-- Here Append All the Cart Cards here-->
+    </div>
+  </body>
+  <script type="module">
+    let cartDataLS;
+let id = JSON.parse(localStorage.getItem("cart")) || [];
+let array=[];
+
+async function catchCartData() {
+
+    for(let i=0;i<id.length;i++){
+        let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id[i]}`);
+        let allData = await res.json();
+        cartDataLS=allData.data;
+        console.log(cartDataLS);
+        array.push(cartDataLS);
+        appendCartPro(array)
+    }
+    console.log(array);
+    
+    // console.log(array[0].data.price);
+
+    let totalValue=0;
+    let total=document.getElementById("cart-total");
+
+    for(let i=0;i<array.length;i++){
+        totalValue+=array[i].price
+    }
+    
+    // console.log(totalValue);
+    total.innerHTML=totalValue;
+}
+
+catchCartData();
+
+
+
+
+
+
+function appendCartPro(array) {
+    let cartContainer=document.getElementById("cart-container");
+    cartContainer.innerHTML="";
+    
+    array.map((el) => {
+
+        let box = document.createElement("div");
+
+        let img = document.createElement("img");
+        img.src = el.image;
+
+        let title = document.createElement("h2");
+        title.innerText = el.title;
+
+        let brand = document.createElement("p");
+        brand.innerText = el.brand;
+
+        let category = document.createElement("p");
+        category.innerText = el.category;
+
+        let price = document.createElement("p");
+        price.innerText = el.price;
+
+        // let cart = document.createElement("button")
+        // cart.innerText = "Add To Cart";
+        // cart.onclick = () => addToCart(el);
+
+        box.append(img, title, brand, category, price);
+        cartContainer.append(box);
+    });
+}
+
+
+  </script>
+</html>

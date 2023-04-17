@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+</head>
+
+<body>
+    <div>
+    <div class="navbar">
+        <div class="navbar-container">
+          <ul class="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Sign-In</a></li>
+            <li><a href="recipe.html">My Recipes</a></li>
+          </ul>
+        </div>
+    </div>
+    <div id="filterBox">
+        <label for="">Filter Category</label>
+        <select name="filter" id="filter" onchange="handleFilter(event)">
+            <option value="All">All</option>
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+        </select>
+        <div id="searchBar">
+            <label for="">Search Recipe</label>
+            <input type="text" name="serach" id="search">
+            <button id="search" onchange="handleSearch(event)">Search</button>
+        </div>
+    </div>
+    <div id="container">
+        <!-- Data will display here -->
+    </div>
+</div>
+</body>
+
+</html>
+<script src="./scripts/index.js">
+</script>

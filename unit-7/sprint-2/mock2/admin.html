@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <h1>Admin Page</h1>
+    <form>
+        <label for="category">Category</label>
+        <br>
+        <select name="category" id="category">
+            <option value="All">All</option>
+            <option value="Family">Family</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Suite">Suite</option>
+        </select>
+        <br>
+        <label for="image">Image</label>
+        <br>
+        <input type="url" name="image" id="image" placeholder="Image URL">
+        <br>
+        <label for="typeOfRoom">Type of Room</label>
+        <br>
+        <label for="ac">AC</label>
+
+        <input type="radio" name="ac" id="ac" value="ac">
+        <br>
+        <label for="nonac">Non-AC</label>
+        <input type="radio" name="nonac" id="nonac" value="ac">
+        <br>
+        <select name="bed" id="bed">
+            <option value="allBed">All</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+        </select>
+        <br>
+        <label for="noAdults">No of adults </label>
+        <br>
+        <input type="number" name="adults" id="adults" placeholder="No of adults">
+        <br>
+        <label for="capacity">Max capacity</label>
+        <br>
+        <input type="number" name="capacity" id="capacity" placeholder="Max capacity">
+        <br>
+        <label for="cost">Cost</label>
+        <br>
+        <input type="number" name="cost" id="cost" placeholder="Enter Cost">
+        <br>
+        <input type="submit" value="Add Room" id="addRoom">
+
+    </form>
+
+    
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Type of room</th>
+                <th>Bed type</th>
+                <th>Capacity</th>
+                <th>Cost</th>
+                <th>Status </th>
+                <th>Edit</th>
+                <th>Delete </th>
+            </tr>
+        </thead>
+
+        <div id="showHotel">
+            
+                <!-- All Hotel Display Here -->
+            
+        </div>
+
+        <tbody id="tbody"></tbody>
+
+    
+</body>
+<script src="./Scripts/admin.js"></script>
+</html>
+

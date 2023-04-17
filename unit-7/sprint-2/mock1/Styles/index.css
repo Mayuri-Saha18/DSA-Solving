@@ -1,0 +1,77 @@
+#mainBox{
+    /* border: 1px solid black; */
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    gap: 30px;
+}
+
+#searchBox{
+    width: 30%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.container{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+}
+/* .imgBox{
+    border: 1px solid blue;
+} */
+.imgBox>img{
+    width: 100%;
+    height: 500px;
+}
+.catDesc{
+    text-align: center;
+    padding: 10px;
+}
+.catName{
+    text-align: center;
+    padding: 10px;
+}
+.catOri{
+    text-align: center;
+    padding: 10px;
+}
+.catLife{
+    text-align: center;
+    padding: 10px;
+}
+.catWik{
+    text-align: center;
+    padding: 10px;
+}
+.catLife{
+    text-align: center;
+    padding: 10px;
+}
+.catTem{
+    text-align: center;
+    padding: 10px;
+}
+.viewBtn{
+    padding: 10px 20px;
+    color: aqua;
+    background-color: darkblue;
+    display: block;
+    margin: auto;
+    border-color: white;
+    border-radius: 20px;
+}
+#pagination{
+    width: 10%;
+    margin: auto;
+    margin-top: 20px;
+}
+/* #pagination select{
+    display: block;
+    margin: auto;
+}
+#pagination label{
+   text-align: center;
+} */

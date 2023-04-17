@@ -1,0 +1,15 @@
+#form{
+    border: 1px solid red;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    margin: 80px;
+}
+form{
+    display: block;
+    margin-left: 630px;
+    
+}
+h1{
+    text-align: center;
+}

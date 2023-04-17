@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+          "navp navp nav nav"
+          "tbox tbox tbox2 tbox3"
+          "fbox fbox2 fbox3 fbox4"
+          "vbox vbox vbox2 vbox2"
+          "abox abox abox2 abox2"
+          "bbox bbox bbox2 bbox2"
+          "last last last last  ";
+      }
+      #main > div:nth-child(1) {
+        grid-area: navp;
+        height: 400px;
+        /* border: 1px solid red; */
+      }
+      #main > div:nth-child(1) > img {
+        height: 400px;
+        width: 100%;
+      }
+      #main > div:nth-child(2) {
+        grid-area: nav;
+        height: 400px;
+        /* border: 1px solid red; */
+        background-color: #f5e3d7;
+      }
+      #main > div:nth-child(3) {
+        grid-area: tbox;
+        height: 200px;
+        /* border: 1px solid yellow; */
+      }
+      #main > div:nth-child(4) {
+        grid-area: tbox2;
+        height: 200px;
+        /* border: 1px solid yellow; */
+      }
+      #main > div:nth-child(4) > img {
+        height: 200px;
+        width: 100%;
+      }
+      #main > div:nth-child(5) {
+        grid-area: tbox3;
+        height: 200px;
+        /* border: 1px solid yellow; */
+        background-color: rgb(235, 175, 79);
+      }
+      #main > div:nth-child(6) {
+        grid-area: fbox;
+        height: 200px;
+        /* border: 1px solid orange; */
+        background-color: rgb(235, 175, 79);
+        color: white;
+        text-align: center;
+        margin: auto;
+      }
+      #main > div:nth-child(7) {
+        grid-area: fbox2;
+        height: 200px;
+        /* border: 1px solid orange; */
+        background-color: #fb683d;
+        color: white;
+        text-align: center;
+        margin: auto;
+      }
+      #main > div:nth-child(8) {
+        grid-area: fbox3;
+        height: 200px;
+        /* border: 1px solid orange; */
+        background-color: black;
+        color: white;
+        text-align: center;
+        margin: auto;
+      }
+      #main > div:nth-child(9) {
+        grid-area: fbox4;
+        height: 200px;
+        /* border: 1px solid orange; */
+        color: black;
+        text-align: center;
+        margin: auto;
+      }
+      #main > div:nth-child(10) {
+        grid-area: vbox;
+        height: 350px;
+        /* border: 1px solid green; */
+      }
+      #main > div:nth-child(10) > img {
+        height: 350px;
+        width: 100%;
+      }
+      #main > div:nth-child(11) {
+        grid-area: vbox2;
+        height: 350px;
+        /* border: 1px solid green; */
+        background-color: #fb683d;
+      }
+      #main > div:nth-child(12) {
+        grid-area: abox;
+        height: 350px;
+        /* border: 1px solid rgb(28, 0, 128); */
+        background-color: rgb(235, 175, 79);
+      }
+      #main > div:nth-child(13) {
+        grid-area: abox2;
+        height: 350px;
+        /* border: 1px solid rgb(28, 0, 128); */
+      }
+      #main > div:nth-child(13) > img {
+        height: 350px;
+        width: 100%;
+      }
+      #main > div:nth-child(14) {
+        grid-area: bbox;
+        height: 350px;
+        /* border: 1px solid rgb(216, 31, 124); */
+        background-color: #fb683d;
+      }
+      #main > div:nth-child(15) {
+        grid-area: bbox2;
+        height: 350px;
+        /* border: 1px solid rgb(216, 31, 124); */
+        background-color: black;
+      }
+      #main > div:nth-child(15) > img {
+        height: 350px;
+        width: 50%;
+      }
+      #main > div:nth-child(16) {
+        grid-area: last;
+        height: 350px;
+        /* border: 1px solid rgb(216, 31, 124); */
+        background-color: #fb683d;
+      }
+
+      @media all and (min-width: 320px) and (max-width: 650px) {
+        #main {
+          grid-template-columns: repeat(2, 1fr);
+
+          grid-template-areas:
+            "navp nav"
+            "tbox tbox"
+            "tbox2 tbox3"
+            "fbox fbox2"
+            "fbox3 fbox4"
+            "vbox vbox"
+            "vbox2 vbox2"
+            "abox abox"
+            "abox2 abox2"
+            "bbox bbox"
+            "bbox2 bbox2"
+            "last last";
+        }
+      }
+      /* "navp navp nav nav"
+          "tbox tbox tbox2 tbox3"
+          "fbox fbox2 fbox3 fbox4"
+          "vbox vbox vbox2 vbox2"
+          "abox abox abox2 abox2"
+          "bbox bbox bbox2 bbox2"
+          "last last last last  "; */
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <!-- nav -->
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          alt="image"
+        />
+      </div>
+      <div></div>
+
+      <!-- 3div -->
+
+      <div>
+        <h1>My Design</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis
+          quos dolorem maiores corrupti similique odio error nulla .
+        </p>
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          alt="image"
+        />
+      </div>
+      <div>
+        <h1>My experience</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+      </div>
+
+      <!-- 4div -->
+
+      <div>
+        <h2>Design</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div>
+        <h2>Design</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div>
+        <h2>Design</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div>
+        <h2>Design</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <!-- 2div -->
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          alt="image"
+        />
+      </div>
+      <div></div>
+
+      <!-- 2div -->
+
+      <div></div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          alt="image"
+        />
+      </div>
+
+      <!-- 2div -->
+
+      <div></div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          alt="image"
+        />
+      </div>
+
+      <!-- 1div -->
+
+      <div></div>
+    </div>
+  </body>
+</html>
+

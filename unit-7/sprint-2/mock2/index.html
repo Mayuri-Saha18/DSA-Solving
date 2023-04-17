@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./Styles/index.css">
+</head>
+<body>
+    <div id="main">
+        <div id="toggleBtn">
+            <label class="loginTo"><span>Login</span></label>
+            <label class="registerTo"><span>Register</span></label>
+        </div>
+
+        <input type="checkbox" id="check">
+        <div class="l1"></div>
+        <div class="l2"></div>
+
+        <div id="loginForm">
+            <form id="login" onsubmit="login(event)">
+                <input type="email" name="email" id="email" placeholder="Enter Email">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Enter Password">
+                <br>
+                <input type="submit" value="Login" id="submit">
+                
+            </form>
+        </div>
+
+        <div id="signUpForm">
+            <form id="signUp" onsubmit="register(event)">
+                <input type="text" name="username" id="username" placeholder="Enter Username">
+                <br>
+                <input type="email" name="emailR" id="emailR" placeholder="Enter Email">
+                <br>
+                <input type="password" name="password" id="passwordR" placeholder="Enter Password">
+                <br>
+                <input type="password" name="repPassword" id="repPasswordR" placeholder="Repeat Password">
+                <br>
+                <input type="submit" value="Register" id="submitR">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="./Scripts/index.js"></script>

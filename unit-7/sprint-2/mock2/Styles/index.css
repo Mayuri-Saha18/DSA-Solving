@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#main{
+    width: 400px;
+    padding: 0px 0px 20px 0px;
+    border: 1px solid red;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#toggleBtn{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 75px;
+    float: left;
+}
+#toggleBtn .loginTo .registerTo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    width: 50%;
+    cursor: pointer;
+}
+
+#check:checked ~ #signUpForm{
+    display: flex;
+}
+#check:checked ~ #loginForm{
+    display: none;
+}
+#check:checked + .l1{
+    left: 50%;
+}
+#check:checked ~ .l2{
+    left: 50%;
+}
+#check{
+    display: none;
+}
+
+.l1{
+    content: "";
+    width: 50%;
+    height: 60px;
+    background-color: transparent;
+    position: absolute;
+    float: right;
+    left: 0px;
+    top: 0px;
+}
+.l2{
+    content: "";
+    width: 50%;
+    height: 60px;
+    z-index: -1;
+    background-color: blue;
+    position: absolute;
+    float: right;
+    left: 0px;
+    top: 0px;
+}
+
+#main #loginForm{
+    display: flex;
+    flex-direction: column;
+}
+#main #loginForm input{
+    padding: 10px;
+}
+#submit{
+    width: 80px;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: crimson;
+    cursor: pointer;
+}
+#submitR{
+    width: 80px;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+#main #signUpForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#main #signUpForm input{
+    outline: none;
+    padding: 8px;
+}

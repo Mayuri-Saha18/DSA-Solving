@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipes Page</title>
+    <link rel="stylesheet" href="./styles/recipe.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+          <ul class="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Sign-In</a></li>
+            <li><a href="recipe.html">My Recipes</a></li>
+          </ul>
+        </div>
+    </div>
+    <form onsubmit="handleAdd(event)">
+        <label for="">Title</label>
+        <input type="text" name="title" id="title" placeholder="Tilte">
+        <br>
+        <input type="url" name="image" id="image" placeholder="Image Url">
+        <br>
+        <input type="text" name="desc" id="desc" placeholder="Short Description">
+        <br>
+        <select name="category" id="category">
+            <option value="All">All</option>
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+        </select>
+        <br>
+        <input type="text" name="Ingredients " id="ing" placeholder="Ingredients ">
+        <br>
+        <textarea name="Instructions" id="instructions" cols="30" rows="10"></textarea>
+        <input type="submit" value="Add" id="add">
+    </form>
+
+    <div id="container">
+        <!-- Data will display here -->
+    </div>
+</body>
+
+</html>
+<script src="./scripts/recipe.js"></script>

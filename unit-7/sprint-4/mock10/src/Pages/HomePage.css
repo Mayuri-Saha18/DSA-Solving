@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #333;
+  height: 50px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+}
+.text{
+    margin-top: 50px;
+}
+.h2{
+    font-size: 50px;
+    color: #0b0d3c;
+}
+.h1{
+    font-size: 70px;
+    text-align: center;
+    color: #3c0b0b;
+}

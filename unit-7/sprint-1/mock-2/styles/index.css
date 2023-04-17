@@ -1,0 +1,10 @@
+#formBox{
+    border: 1px solid blue;
+    width: 80%;
+    margin: auto;
+    padding: 50px;
+}
+form{
+    display: block;
+    margin: auto;
+}

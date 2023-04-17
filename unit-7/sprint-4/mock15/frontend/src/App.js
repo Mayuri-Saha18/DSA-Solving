@@ -1,0 +1,15 @@
+import { Box } from '@chakra-ui/react';
+import './App.css';
+import { AllRoutes } from './Pages/AllRoutes';
+import Navbar from './Components/Navbar';
+
+function App() {
+  return (
+    <Box>
+      <Navbar />
+      <AllRoutes />
+    </Box>
+  );
+}
+
+export default App;

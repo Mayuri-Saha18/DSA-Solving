@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./styles/dashboard.css">
+</head>
+<body>
+    <div id="dashboardMain">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="status.html">Status</a>
+        <div id="searchbar">
+            <input oninput="search()" type="text" name="search" id="query" placeholder="search...">
+        </div>
+        <div id="filterBox">
+            <label for="">Filter</label>
+            <select name="filer" id="filter" onchange="handleFilter(event)">
+                <Option value="all">All</Option>
+                <Option value="employee">Employee</Option>
+                <Option value="student">Student</Option>
+            </select>
+        </div>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Unique-Id</th>
+                    <th>Name</th>
+                    <th>Reason</th>
+                    <th>Designation</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Overseer</th>
+                    <th>Grant</th>
+                    <th>Reject</th>
+                    <th>Generate OTP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- All rows should be display here. -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="grantModel" class="model">
+        <div class="details">
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="./scripts/dashboard.js"></script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request Page</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <div id="main">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="status.html">Status</a>
+        <div id="formBox">
+            <form id="form" onsubmit="handleLeave(event)">
+                <label for="uniqueId">Unique-Id</label>
+                <input type="text" id="uniqueId" name="uniqueId" placeholder="Enter uniqueId" required>
+                <br>
+                
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <br>
+
+                <label for="reason">Reason for Leave</label>
+                <textarea name="reason" id="reasonLeave" cols="15" rows="1"></textarea>
+                <br>
+
+                <label for="designation">Designation</label>
+                <select name="designation" id="designation">
+                    <option value="designationS">Select Designation</option>
+                    <option value="employee">Employee</option>
+                    <option value="student">Student </option>
+                </select>
+                <br>
+
+                <label for="start">Leave Start Date</label>
+                <input type="date" id="startDate" name="startDate" required>
+                <br>
+
+                <label for="end">Leave End Date</label>
+                <input type="date" id="endDate" name="endDate" required>
+                <br>
+
+                <label for="Overseer">Overseer</label>
+                <select name="overseer" id="overseer">
+                    <option value="designationS">Select Overseer</option>
+                    <option value="ec">EC</option>
+                    <option value="hr">HR </option>
+                    <option value="manager">Manager </option>
+                </select>
+                <br>
+
+                <input type="submit" value="Apply">
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script src="./scripts/index.js"></script>

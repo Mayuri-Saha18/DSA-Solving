@@ -1,0 +1,12 @@
+#allHotel{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+
+
+img{
+    width: 100%;
+}
