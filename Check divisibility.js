@@ -1,41 +1,64 @@
-let flag =false
-let fs = require("fs")
-let input = fs.readFileSync(0, "utf-8")
-input = input.trim().split("\n")
-
-let tc = +input[0]
-let index =1
-
-for(let i =0; i<tc; i++){
-let [n,k] = input[index++].trim().split(" ").map(Number)
-let arr = input[index++].trim().split(" ").map(Number)
-flag=false
-check(n,k,arr,[],0)
-console.log(flag?"YES":"NO")
-
-
-}
-
-function check(n,k,arr,newArr,index){
+function divisibility(n,m,arr,newArr,index){
     
     if(newArr.length!=0){
-        let sum = newArr.reduce((acc,el)=>acc+el,0)
-        if(sum%k==0){
-           flag=true
+        
+        let sum=newArr.reduce((acc,el)=>acc+el,0)
+        
+        if(sum%m==0){
+            flag=true
+            
             return
         }
-        
     }
     
     if(index==arr.length){
         return
     }
     
-    for(let i =index; i<n; i++){
+    
+    for(let i=index;i<n;i++){
+        
         newArr.push(arr[i])
-        check(n,k,arr,newArr,i+1)
+        divisibility(n,m,arr,newArr,i+1)
+        
         newArr.pop()
+        
     }
+    
+}
+function runProgram(input) {
+  input=input.trim().split("\n")
+  let tc=+input[0]
+  let line=1
+  for(let i=0;i<tc;i++){
+      let [n,m]=input[line++].trim().split(" ").map(Number)
+      let arr=input[line++].trim().split(" ").map(Number)
+      
+      flag=false
+      
+      divisibility(n,m,arr,[],0)
+      
+      console.log(flag?"YES":"NO")
+  }
+}
 
-
+if (process.env.USER === "") {
+  runProgram(``);
+} else {
+  process.stdin.resume();
+  process.stdin.setEncoding("ascii");
+  let read = "";
+  process.stdin.on("data", function (input) {
+    read += input;
+  });
+  process.stdin.on("end", function () {
+    read = read.replace(/\n$/, "");
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+  });
+  process.on("SIGINT", function () {
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+    process.exit(0);
+  });
 }
