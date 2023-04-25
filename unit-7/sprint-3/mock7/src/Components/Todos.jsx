@@ -23,7 +23,7 @@ const Todos = () => {
   return (
     <div>
       <h1>Todos</h1>
-      {/* <TodoInput /> */}
+      <TodoInput />
 
 
       {todos.map((el,id,status)=>{
