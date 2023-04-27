@@ -11,6 +11,15 @@ import {
   Th,
   Thead,
   Tr,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  FormControl
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +32,15 @@ import {
 } from "../Redux/Admin/action";
 import store from "../Redux/store";
 
+const form= {
+title:"",
+poster:"",
+director:"",
+year:"",
+genre:"",
+IMDB_Rating:""
+}
+
 export const Dashboard = () => {
   const adminData = useSelector((store) => store.AdminReducer.adminData);
   const dispatch = useDispatch();
@@ -33,6 +51,13 @@ export const Dashboard = () => {
   const [genre, setGenre] = useState("");
   const [IMDB_Rating, setIMDB_Rating] = useState("");
   const [ticket, setTicket] = useState(0);
+  const [updateFrom, setUpdateForm] = useState(form);
+
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const initialRef = React.useRef(null)
+  const finalRef = React.useRef(null)
 
   useEffect(() => {
     dispatch(getAllData);
@@ -85,9 +110,17 @@ export const Dashboard = () => {
     });
   };
 
+  function updateFormHandler(e){
+console.log("upadte working")
+  }
+  function updateFormOpener(data){
+    onOpen
+  }
+
   return (
     <>
     <Navbar />
+    
       <div style={{ width: "40%", margin: "auto" }}>
         <h3
           style={{
@@ -99,6 +132,7 @@ export const Dashboard = () => {
         >
           ADD Movie
         </h3>
+
 
         <form onSubmit={handleAddData} margin="auto">
           <FormLabel>Title</FormLabel>
@@ -206,7 +240,8 @@ export const Dashboard = () => {
                       <Td>
                         <Button
                           border={"1px solid gray"}
-                          onClick={() => handleEdit(el.id)}
+                          // onClick={() => handleEdit(el.id)}
+                          onClick={()=>updateFormOpener(el)}
                         >
                           EDIT
                         </Button>
@@ -225,6 +260,83 @@ export const Dashboard = () => {
               })}
           </Table>
         </TableContainer>
+        <Button onClick={onOpen}>Open Modal</Button>
+      <Button ml={4} ref={finalRef}>
+        I'll receive focus on close
+      </Button>
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+          <FormLabel>Title</FormLabel>
+          <Input
+            type="text"
+            value={title}
+            onChange={updateFormHandler}
+          />
+          <FormLabel>Poster Image</FormLabel>
+          <Input
+            type="text"
+            mb={"25px"}
+            value={poster}
+            onChange={updateFormHandler}
+          />
+          <FormLabel>Director</FormLabel>
+          <Input
+            type="text"
+            value={director}
+            onChange={updateFormHandler}
+          />
+          <FormLabel>Year</FormLabel>
+          <Input
+            type="text"
+            mb={"25px"}
+            value={year}
+            onChange={updateFormHandler}
+          />
+          <FormLabel>Genre</FormLabel>
+          <Select
+            placeholder="Genre"
+            name="genre"
+            onChange={updateFormHandler}
+          >
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
+          </Select>
+          <FormLabel>IMDB_Rating</FormLabel>
+          <Input
+            type="text"
+            value={IMDB_Rating}
+            onChange={updateFormHandler}
+          />
+          <FormLabel>Ticket Price</FormLabel>
+          <Input
+            type="number"
+            value={ticket}
+            onChange={updateFormHandler}
+          />
+
+          
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       </div>
     </>
   );
