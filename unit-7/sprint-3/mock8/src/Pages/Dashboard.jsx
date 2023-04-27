@@ -19,7 +19,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  FormControl
+  
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,8 +50,8 @@ export const Dashboard = () => {
   const [year, setYear] = useState("");
   const [genre, setGenre] = useState("");
   const [IMDB_Rating, setIMDB_Rating] = useState("");
-  const [ticket, setTicket] = useState(0);
-  const [updateFrom, setUpdateForm] = useState(form);
+  const [ticket, setTicket] = useState("");
+  const [updateForm, setUpdateForm] = useState(form);
 
 
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -61,7 +61,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getAllData);
-  }, []);
+  }, [dispatch]);
 
   const handleAddData = (e) => {
     e.preventDefault();
@@ -94,27 +94,30 @@ export const Dashboard = () => {
     });
   };
 
-  const handleEdit = (id) => {
-    let editData = {
-      id,
-      title,
-      poster,
-      director,
-      year,
-      genre,
-      IMDB_Rating,
-      ticket,
-    };
-    dispatch(updateData(editData)).then(() => {
-      dispatch(getAllData);
-    });
-  };
+  // const handleEdit = (id) => {
+  //   let editData = {
+  //     id,
+  //     title,
+  //     poster,
+  //     director,
+  //     year,
+  //     genre,
+  //     IMDB_Rating,
+  //     ticket,
+  //   };
+  //   dispatch(updateData(editData)).then(() => {
+  //     dispatch(getAllData);
+  //   });
+  // };
 
   function updateFormHandler(e){
+    const { name, value } = e.target;
+setUpdateForm({ ...updateForm, [name]: value });
 console.log("upadte working")
   }
-  function updateFormOpener(data){
-    onOpen
+  function updateFormOpener(el){
+    setUpdateForm(el);
+      onOpen();
   }
 
   return (
@@ -199,7 +202,7 @@ console.log("upadte working")
   return <AdminProductCard  {...el}/>
 })} */}
       <div>
-        <TableContainer ml={"200px"}>
+        <TableContainer margin="auto" width="95%">
           <Table variant="striped" colorScheme="teal">
             <Thead bgColor={"blue.400"}>
               <Tr>
@@ -209,6 +212,7 @@ console.log("upadte working")
                   Ticket Price
                 </Th>
                 <Th color="white">Poster</Th>
+                <Th color="white">Director</Th>
                 <Th color="white">Year</Th>
                 <Th color="white">Genre</Th>
                 <Th color="white">IMDB_Rating</Th>
@@ -228,6 +232,7 @@ console.log("upadte working")
                         <Image
                           rounded={"lg"}
                           height={250}
+                          width={200}
                           objectFit={"cover"}
                           src={el.poster}
                           data-cy="product-image"
@@ -260,10 +265,7 @@ console.log("upadte working")
               })}
           </Table>
         </TableContainer>
-        <Button onClick={onOpen}>Open Modal</Button>
-      <Button ml={4} ref={finalRef}>
-        I'll receive focus on close
-      </Button>
+       
 
       <Modal
         initialFocusRef={initialRef}
@@ -273,7 +275,7 @@ console.log("upadte working")
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader>Edit Movie</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
           <FormLabel>Title</FormLabel>
