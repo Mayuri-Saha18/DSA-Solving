@@ -22,7 +22,7 @@ export const reducer = (state = initialState, { type, payload }) => {
     case types.UPDATE_DATA_REQUEST:
       return { ...state, isLoading: true };
     case types.UPDATE_DATA_SUCCESS:
-      return { ...state, payload };
+      return { ...state, adminData: payload };
     case types.UPDATE_DATA_ERROR:
       return { ...state, isError: true };
     case types.DELETE_DATA_REQUEST:

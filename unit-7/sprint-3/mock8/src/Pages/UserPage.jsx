@@ -39,7 +39,7 @@ import {
   
     return (
       <>
-        <div style={{ width: "40%", margin: "auto" }}>
+        <div style={{ width: "90%", margin: "auto" }}>
           <h3
             style={{
               marginTop: "20px",
@@ -53,9 +53,10 @@ import {
   
 
         </div>
+        
 
         <div>
-          <TableContainer ml={"200px"}>
+          <TableContainer margin="auto" width="98%">
             <Table variant="striped" colorScheme="teal">
               <Thead bgColor={"blue.400"}>
                 <Tr>
@@ -65,6 +66,7 @@ import {
                     Ticket Price
                   </Th>
                   <Th color="white">Poster</Th>
+                  <Th color="white">Director</Th>
                   <Th color="white">Year</Th>
                   <Th color="white">Genre</Th>
                   <Th color="white">IMDB_Rating</Th>
@@ -83,7 +85,7 @@ import {
                         <Td>
                           <Image
                             rounded={"lg"}
-                            height={250}
+                            height={100}
                             objectFit={"cover"}
                             src={el.poster}
                             data-cy="product-image"
@@ -99,6 +101,14 @@ import {
                             // onClick={() => handleEdit(el.id)}
                           >
                             EDIT
+                          </Button>
+                        </Td>
+                        <Td>
+                          <Button
+                            border={"1px solid gray"}
+                            // onClick={() => handleEdit(el.id)}
+                          >
+                            Delete
                           </Button>
                         </Td>
                       </Tr>

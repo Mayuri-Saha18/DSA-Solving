@@ -110,11 +110,40 @@ export const Dashboard = () => {
   //   });
   // };
 
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    let editData = {
+      id: updateForm.id,
+      title: updateForm.title,
+      poster: updateForm.poster,
+      director: updateForm.director,
+      year: updateForm.year,
+      genre: updateForm.genre,
+      IMDB_Rating: updateForm.IMDB_Rating,
+      ticket: updateForm.ticket,
+    };
+    console.log(editData)
+
+    setTitle(updateForm.title);
+    setPoster(updateForm.poster);
+    setDirector(updateForm.director);
+    setYear(updateForm.year);
+    setGenre(updateForm.genre);
+    setIMDB_Rating(updateForm.IMDB_Rating);
+    setTicket(updateForm.ticket);
+  
+    dispatch(updateData(editData)).then(() => {
+      dispatch(getAllData);
+    });
+   
+  };
+
   function updateFormHandler(e){
     const { name, value } = e.target;
 setUpdateForm({ ...updateForm, [name]: value });
 console.log("upadte working")
   }
+
   function updateFormOpener(el){
     setUpdateForm(el);
       onOpen();
@@ -141,6 +170,7 @@ console.log("upadte working")
           <FormLabel>Title</FormLabel>
           <Input
             type="text"
+            name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -148,12 +178,14 @@ console.log("upadte working")
           <Input
             type="text"
             mb={"25px"}
+            name="poster"
             value={poster}
             onChange={(e) => setPoster(e.target.value)}
           />
           <FormLabel>Director</FormLabel>
           <Input
             type="text"
+            name="director"
             value={director}
             onChange={(e) => setDirector(e.target.value)}
           />
@@ -161,6 +193,7 @@ console.log("upadte working")
           <Input
             type="text"
             mb={"25px"}
+            name="year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
           />
@@ -168,6 +201,7 @@ console.log("upadte working")
           <Select
             placeholder="Genre"
             name="genre"
+            value={genre}
             onChange={(e) => setGenre(e.target.value)}
           >
             <option value="action">Action</option>
@@ -184,6 +218,7 @@ console.log("upadte working")
           <FormLabel>Ticket Price</FormLabel>
           <Input
             type="number"
+            name="ticket"
             value={ticket}
             onChange={(e) => setTicket(e.target.value)}
           />
@@ -226,22 +261,22 @@ console.log("upadte working")
                   <Tbody>
                     <Tr>
                       <Td>{el.id} </Td>
-                      <Td> {el.title}</Td>
-                      <Td isNumeric>Price : {el.ticket} </Td>
+                      <Td>{el.title}</Td>
+                      <Td isNumeric>₹ {el.ticket}</Td>
                       <Td>
                         <Image
                           rounded={"lg"}
-                          height={250}
-                          width={200}
+                          height={100}
+                          width={100}
                           objectFit={"cover"}
                           src={el.poster}
                           data-cy="product-image"
                         />
                       </Td>
-                      <Td> {el.director}</Td>
-                      <Td> {el.year}</Td>
-                      <Td> {el.genre}</Td>
-                      <Td> {el.IMDB_Rating}</Td>
+                      <Td>{el.director}</Td>
+                      <Td>{el.year}</Td>
+                      <Td>{el.genre}</Td>
+                      <Td>{el.IMDB_Rating}</Td>
                       <Td>
                         <Button
                           border={"1px solid gray"}
@@ -275,39 +310,47 @@ console.log("upadte working")
       >
         <ModalOverlay />
         <ModalContent>
+        <form onSubmit={handleEditSubmit}>
           <ModalHeader>Edit Movie</ModalHeader>
           <ModalCloseButton />
+          
           <ModalBody pb={6}>
+         
           <FormLabel>Title</FormLabel>
           <Input
             type="text"
-            value={title}
+            name="title"
+            value={updateForm.title}
             onChange={updateFormHandler}
           />
           <FormLabel>Poster Image</FormLabel>
           <Input
             type="text"
             mb={"25px"}
-            value={poster}
+            name="poster"
+            value={updateForm.poster}
             onChange={updateFormHandler}
           />
           <FormLabel>Director</FormLabel>
           <Input
             type="text"
-            value={director}
+            name="director"
+            value={updateForm.director}
             onChange={updateFormHandler}
           />
           <FormLabel>Year</FormLabel>
           <Input
             type="text"
             mb={"25px"}
-            value={year}
+            name="year"
+            value={updateForm.year}
             onChange={updateFormHandler}
           />
           <FormLabel>Genre</FormLabel>
           <Select
             placeholder="Genre"
             name="genre"
+            value={updateForm.genre}
             onChange={updateFormHandler}
           >
             <option value="action">Action</option>
@@ -318,25 +361,30 @@ console.log("upadte working")
           <FormLabel>IMDB_Rating</FormLabel>
           <Input
             type="text"
-            value={IMDB_Rating}
+            name="IMDB_Rating"
+            value={updateForm.IMDB_Rating}
             onChange={updateFormHandler}
           />
           <FormLabel>Ticket Price</FormLabel>
           <Input
             type="number"
-            value={ticket}
+            name="ticket"
+            value={updateForm.ticket}
             onChange={updateFormHandler}
           />
-
+          
+          
           
           </ModalBody>
-
+          
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
+            <Button colorScheme='blue' mr={3} >
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
+          </form>
+
         </ModalContent>
       </Modal>
       </div>
